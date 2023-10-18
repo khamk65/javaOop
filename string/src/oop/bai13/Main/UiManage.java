@@ -29,7 +29,6 @@ public class UiManage {
         int type = scanner.nextInt();
         scanner.nextLine(); // Đọc dòng trống sau khi nhập loại nhân viên
 
-        // Nhập thông tin chung cho tất cả loại nhân viên
         System.out.print("Nhập ID: ");
         String id = scanner.nextLine();
 
