@@ -9,6 +9,7 @@ public class Main {
         boolean exit = false;
         while (!exit) {
             System.out.println("Chọn một trong các tùy chọn sau:");
+            System.out.println("0. Tạo khoa mới");
             System.out.println("1. Thêm Sinh viên");
             System.out.println("2. Đếm số lượng Sinh viên Chính quy");
             System.out.println("3. Tìm khoa có Sinh viên ưu tú nhất");
@@ -20,9 +21,12 @@ public class Main {
 
             Scanner scanner = new Scanner(System.in);
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Loại bỏ dấu xuống dòng
+            scanner.nextLine();
 
             switch (choice) {
+                case 0:
+                    addSchool();
+                    break;
                 case 1:
                     addStudent();
                     break;

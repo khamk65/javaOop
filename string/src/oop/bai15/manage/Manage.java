@@ -16,6 +16,10 @@ public class Manage {
         this.ListSchool = new ArrayList<>();
     }
 
+    public void addSchool(School sch) {
+        this.ListSchool.add(sch);
+    }
+
     public void addStudentToSchool(Student student, School school) {
         school.AddStudent(student);
     }

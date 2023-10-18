@@ -19,6 +19,14 @@ public class StudentManagementUI {
 
     private static Manage manager = new Manage();
 
+    public static void addSchool() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("nhập vào tên của khoa");
+        String name = scanner.nextLine();
+        manager.addSchool(new School(name));
+
+    }
+
     public static void addStudent() {
         Scanner scanner = new Scanner(System.in);
 
@@ -56,16 +64,16 @@ public class StudentManagementUI {
             scanner.nextLine();
 
             List<Gpa> gpas = new ArrayList<>();
-            System.out.print("Nhập số lượng điểm trung bình (GPA): ");
+            System.out.print("Nhập số lượng kỳ học: ");
             int numGpas = scanner.nextInt();
             scanner.nextLine();
 
             for (int i = 0; i < numGpas; i++) {
-                System.out.print("Nhập tên điểm trung bình " + (i + 1) + ": ");
+                System.out.print("Nhập kỳ hoc(ví dụ 20221)" + ": ");
                 double gpaName = scanner.nextDouble();
                 scanner.nextLine();
 
-                System.out.print("Nhập giá trị điểm trung bình " + (i + 1) + ": ");
+                System.out.print("Nhập điểm Gpa của kỳ " + ": ");
                 double gpaValue = scanner.nextDouble();
                 scanner.nextLine();
 
@@ -96,15 +104,14 @@ public class StudentManagementUI {
     public static void findTopStudents() {
         Map<String, Student> topStudentsByDepartment = manager.findMaxGpaStudentPerDepartment(getSchoolFromUser());
         if (!topStudentsByDepartment.isEmpty()) {
-            System.out.println("Sinh viên ưu tú nhất ở từng khoa:");
+            System.out.println("Sinh viên điểm cao nhất ở từng khoa:");
             for (Map.Entry<String, Student> entry : topStudentsByDepartment.entrySet()) {
-                System.out.println("Khoa: " + entry.getKey() + ", Sinh viên ưu tú: " + entry.getValue().getName());
+                System.out.println("Khoa: " + entry.getKey() + ", Sinh viên điểm cao: " + entry.getValue().getName());
             }
         } else {
-            System.out.println("Không tìm thấy sinh viên ưu tú ở bất kỳ khoa nào.");
+            System.out.println("Không tìm thấy sinh viên ở bất kỳ khoa nào.");
         }
     }
-
 
 
     public static void listExternalStudents() {
